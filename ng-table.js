@@ -537,16 +537,6 @@ app.directive('ngTable', ['$compile', '$q', '$parse',
                 // custom header
                 var thead = element.find('thead');
 
-                // IE 8 fix :not(.ng-table-group) selector
-                angular.forEach(angular.element(element.find('tr')), function (tr) {
-                    tr = angular.element(tr);
-                    if (!tr.hasClass('ng-table-group') && !row) {
-                        row = tr;
-                    }
-                });
-                if (!row) {
-                    return;
-                }
                 angular.forEach(row.find('td,th'), function (item) {
                     var el = angular.element(item);
                     if (el.attr('ignore-cell') && 'true' === el.attr('ignore-cell')) {
